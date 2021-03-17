@@ -23,8 +23,11 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          pip install pytest
+          pip install pytest pytest-cov
 
       - name: Run pytest
         run: |
-          pytest -vra
+          pytest -vra --cov
+
+      - name: Upload code coverage
+        uses: codecov/codecov-action@v1
